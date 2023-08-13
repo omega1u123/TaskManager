@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.Service.TaskService;
+import com.example.demo.Service.UserService;
 import com.example.demo.store.entity.TaskEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,7 +18,6 @@ public class Controller {
 
     public Controller(TaskService taskService){
         this.taskService = taskService;
-
     }
 
 
@@ -40,5 +40,7 @@ public class Controller {
     public Iterable<TaskEntity> getAllTasks(){
        return taskService.getAllTasks();
     }
+
+
 
 }

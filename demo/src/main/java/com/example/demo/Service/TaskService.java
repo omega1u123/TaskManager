@@ -5,6 +5,8 @@ import com.example.demo.store.repo.TaskRepo;
 import org.springframework.stereotype.Service;
 
 
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Optional;
@@ -14,6 +16,7 @@ import java.util.Optional;
 public class TaskService {
 
     private final TaskRepo taskRepo;
+
 
 
     public TaskService(TaskRepo taskRepo) {
@@ -49,5 +52,6 @@ public class TaskService {
     public Iterable<TaskEntity> getAllTasks(){
        return taskRepo.findAll();
     }
+
 
 }

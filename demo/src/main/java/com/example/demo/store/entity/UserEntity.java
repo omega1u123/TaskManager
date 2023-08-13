@@ -14,20 +14,23 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Table(name = "user")
+@Table(name = "user_entity")
 public class UserEntity {
 
     @Id
-    @GeneratedValue
     private Long id;
 
     private String login;
 
     private String password;
 
+    @OneToMany
+    private List<TaskEntity> tasks;
+
 
     public UserEntity(){}
-    public UserEntity(String login, String password){
+    public UserEntity(Long id,String login, String password){
+        this.id = id;
         this.login = login;
         this.password = password;
     }
