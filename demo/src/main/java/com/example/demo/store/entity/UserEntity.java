@@ -1,6 +1,10 @@
 package com.example.demo.store.entity;
 
 import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,15 +19,14 @@ public class UserEntity {
 
     @Id
     @GeneratedValue
-    private long id;
+    private Long id;
 
     private String login;
 
     private String password;
 
-    @OneToMany
-    private List<TaskEntity> tasks;
 
+    public UserEntity(){}
     public UserEntity(String login, String password){
         this.login = login;
         this.password = password;
