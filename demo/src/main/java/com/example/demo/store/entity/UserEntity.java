@@ -24,4 +24,9 @@ public class UserEntity {
     @OneToMany
     private List<TaskEntity> tasks;
 
+    public UserEntity(String login, String password){
+        this.login = login;
+        this.password = password;
+    }
+
 }
