@@ -21,8 +21,8 @@ public class Controller {
 
 
     @PostMapping("/add_task")
-    public void addTask(@RequestParam("id") long id, @RequestParam("title") String title, @RequestParam("priority") int priority){
-        taskService.addTask(id, title, priority);
+    public void addTask(@RequestParam("title") String title, @RequestParam("priority") int priority){
+        taskService.addTask(title, priority);
     }
 
     @PostMapping("/delete_task")

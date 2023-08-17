@@ -3,10 +3,6 @@ package com.example.demo.Service;
 import com.example.demo.store.entity.TaskEntity;
 import com.example.demo.store.repo.TaskRepo;
 import org.springframework.stereotype.Service;
-
-
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Optional;
@@ -16,8 +12,6 @@ import java.util.Optional;
 public class TaskService {
 
     private final TaskRepo taskRepo;
-
-
 
     public TaskService(TaskRepo taskRepo) {
         this.taskRepo = taskRepo;
@@ -34,9 +28,8 @@ public class TaskService {
         return page;
     }
 
-    public void addTask(long id, String title, int priority){
+    public void addTask(String title, int priority){
       TaskEntity task = new TaskEntity(title, priority);
-
       taskRepo.save(task);
     }
 
