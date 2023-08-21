@@ -14,8 +14,8 @@ public class UserService {
         this.userRepo = userRepo;
     }
 
-    public void addUser(Long id,String login, String password){
-        UserEntity user = new UserEntity(id,login, password);
+    public void addUser(String login, String password){
+        UserEntity user = new UserEntity(login, password, "USER");
         userRepo.save(user);
     }
 
