@@ -1,5 +1,6 @@
-package com.example.demo.controller;
+/*package com.example.demo.controller;
 
+import com.example.demo.Service.MyUserDetailsService;
 import com.example.demo.Service.UserService;
 import com.example.demo.store.entity.UserEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,9 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UserController {
 
-  private final UserService userService;
+  private final MyUserDetailsService userService;
 
-  public UserController(UserService userService) {
+  public UserController(MyUserDetailsService userService) {
       this.userService = userService;
   }
 
@@ -26,4 +27,4 @@ public class UserController {
       return userService.getUser();
   }
 
-}
+}*/

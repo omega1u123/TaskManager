@@ -2,6 +2,7 @@ package com.example.demo.Service;
 
 import com.example.demo.store.entity.TaskEntity;
 import com.example.demo.store.repo.TaskRepo;
+import com.example.demo.store.repo.UserRepo;
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -12,9 +13,11 @@ import java.util.Optional;
 public class TaskService {
 
     private final TaskRepo taskRepo;
+    private final UserService userService;
 
-    public TaskService(TaskRepo taskRepo) {
+    public TaskService(TaskRepo taskRepo, UserService userService) {
         this.taskRepo = taskRepo;
+        this.userService = userService;
     }
 
     public ModelAndView startPage(){
@@ -31,6 +34,7 @@ public class TaskService {
     public void addTask(String title, int priority){
       TaskEntity task = new TaskEntity(title, priority);
       taskRepo.save(task);
+      userService.addTask(task);
     }
 
     public void deleteTask(long id){
