@@ -9,6 +9,8 @@ import com.example.demo.store.repo.TaskRepo;
 import com.example.demo.store.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,8 +35,8 @@ public class FormController {
 
     @GetMapping("/page")
     public String getTaskList(Model model){
-        List<TaskEntity> taskList = userRepo.findByLogin("ilya").getTasks();
-        //Iterable<TaskEntity> taskList = taskService.getAllTasks();
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        List<TaskEntity> taskList = userRepo.findByLogin(auth.getName()).getTasks();
         model.addAttribute("task", taskList);
         return "task_list";
     }
