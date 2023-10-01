@@ -1,6 +1,6 @@
-package com.example.demo.store.entity;
+package com.example.demo.store.model;
 
-public class FormEntity {
+public class FormModel {
     private String title;
     private int priority;
 

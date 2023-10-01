@@ -1,20 +1,14 @@
 package com.example.demo.store.entity;
 
 import jakarta.persistence.*;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import lombok.Getter;
-import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
-@Getter
-@Setter
 @Entity
 @Table(name = "user_entity")
-public class UserEntity {
+public class UserEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -26,8 +20,8 @@ public class UserEntity {
 
     private String role;
 
-    @OneToMany
-    private List<TaskEntity> tasks;
+    @OneToMany(mappedBy = "userEntity", cascade = CascadeType.ALL)
+    private List<TaskEntity> tasks = new ArrayList<>();
 
 
     public UserEntity(){}
@@ -59,5 +53,17 @@ public class UserEntity {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public List<TaskEntity> getTasks() {
+        return tasks;
+    }
+
+    public void setTasks(List<TaskEntity> tasks) {
+        this.tasks = tasks;
+    }
+
+    public Long getId() {
+        return id;
     }
 }
